@@ -1,0 +1,15 @@
+{% extends "lyrics/layout.html" %}
+{% block body %}
+
+    <h1>Songs</h1>
+    <ul>
+        {% for song in song %}
+            <li>
+                <a href = "{% url 'lyrics' song.title %}">
+                {{ song.title }}
+                </a> 
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

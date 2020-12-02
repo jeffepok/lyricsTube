@@ -1,0 +1,12 @@
+{% extends "lyrics/layout.html" %}
+{% block body %}
+
+    <h1>{{song.title}}</h1>
+    <ul>
+        <li>
+            {{song.lyrics}}
+        </li>
+    </ul>
+    <a href = "{% url 'index' %}"> Back to song list</a>
+
+{% endblock %}
