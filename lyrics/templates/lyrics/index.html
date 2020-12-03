@@ -7,14 +7,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{% static 'lyrics\assets\css\main.css' %}" />
 		<noscript><link rel="stylesheet" href="{%static 'lyrics\assets\css\noscript.css' %}" /></noscript>
-	</head>
-	<body class="is-preload">
 		<script>  
-			function setTitleLyrics(song_lyrics, song_title){
-				document.getElementById('lyrics').innerHTML = song_lyrics;
+			function setTitleLyrics(song_title, song_lyrics){
 				document.getElementById('song_title').innerHTML = song_title;
+				document.getElementById('lyrics').innerHTML = song_lyrics;
 			}
 		</script>
+	</head>
+	<body class="is-preload">
+		
 		<!-- Sidebar -->
 			<section id="sidebar">
 				<div class="inner">
@@ -23,11 +24,11 @@
 						<ul>
 							{% for song in song %}			
 								<li>
-									<a href = "#" onclick="setTitleLyrics('{{song.lyrics}}', '{{song.title}}')">
+									<a href = "#" onclick="setTitleLyrics('{{song.title}}', '{{song.lyrics}}')">
 										{{song.title}}
 									</a>			
 								</li>
-                            {% endfor%}
+                            {% endfor %}
 						</ul>
 					</nav>
 				</div>
