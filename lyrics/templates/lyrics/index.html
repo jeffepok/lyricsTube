@@ -1,15 +1,68 @@
-{% extends "lyrics/layout.html" %}
-{% block body %}
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Ghanaian Local Songs</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'lyrics\assets\css\main.css' %}" />
+		<noscript><link rel="stylesheet" href="{%static 'lyrics\assets\css\noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+		<script>  
+			function setTitleLyrics(song_lyrics, song_title){
+				document.getElementById('lyrics').innerHTML = song_lyrics;
+				document.getElementById('song_title').innerHTML = song_title;
+			}
+		</script>
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<h2>Songs</h2>
+						<ul>
+							{% for song in song %}			
+								<li>
+									<a href = "#" onclick="setTitleLyrics('{{song.lyrics}}', '{{song.title}}')">
+										{{song.title}}
+									</a>			
+								</li>
+                            {% endfor%}
+						</ul>
+					</nav>
+				</div>
+			</section>
 
-    <h1>Songs</h1>
-    <ul>
-        {% for song in song %}
-            <li>
-                <a href = "{% url 'lyrics' song.title %}">
-                {{ song.title }}
-                </a> 
-            </li>
-        {% endfor %}
-    </ul>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-{% endblock %}
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h2 id = "song_title">{{song.0.title}}</h2>
+							<p id = "lyrics">{{song.0.lyrics}}</p>
+						</div>
+					</section>
+
+				
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Author: Jefferson and Bernard</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'lyrics/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'lyrics/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'lyrics/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'lyrics/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'lyrics/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'lyrics/assets/js/util.js' %}"></script>
+			<script src="{% static 'lyrics/assets/js/main.js' %}"></script>
+
+	</body>
+</html>

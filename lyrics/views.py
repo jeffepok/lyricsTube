@@ -6,8 +6,3 @@ def index(request):
         "song":  Song.objects.all()
     }
     )
-def lyrics(request, song_title):
-    song = Song.objects.get(title = song_title)
-    return render(request, "lyrics/lyrics.html",{
-        "song": song
-    })
