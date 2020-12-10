@@ -4,7 +4,9 @@
 @import 'libs/vendor';
 @import 'libs/breakpoints';
 @import 'libs/html-grid';
-@import 'fontawesome-all.min.css';
+@import url('fontawesome-all.min.css');
+
+
 
 /*
 	Hyperspace by HTML5 UP
@@ -27,7 +29,7 @@
 
 	@import 'base/reset';
 	@import 'base/page';
-	@import 'base/typography';
+	@import "base/typography";
 
 // Component.
 

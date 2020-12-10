@@ -7,3 +7,6 @@ class Song(models.Model):
 
     def __str__(self):
         return self.title
+
+class lyrics(models.Model):
+    words = models.TextField(blank = True)
